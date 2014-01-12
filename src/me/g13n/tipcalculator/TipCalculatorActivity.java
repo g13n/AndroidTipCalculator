@@ -12,7 +12,7 @@ public class TipCalculatorActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tip_entry);
+        setContentView(R.layout.activity_tip_calculator);
     }
     
     public void onTenPercentClick(View v) {
