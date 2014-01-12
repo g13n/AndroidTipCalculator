@@ -94,7 +94,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/lblTip"
         android:layout_alignBottom="@+id/lblTip"
-        android:layout_toLeftOf="@+id/btnCalculate"
+        android:layout_toRightOf="@+id/lblTip"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>
