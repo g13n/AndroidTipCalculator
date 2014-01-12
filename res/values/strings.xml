@@ -10,7 +10,6 @@
     <string name="tip_label">Tip:</string>
     <string name="different_tip">Different tip</string>
     <string name="calculate">Calculate</string>
-    <string name="currency">$%.2g</string>
     <string name="invalid_input">Please correct your input.  Negative values are not allowed</string>
     
 </resources>

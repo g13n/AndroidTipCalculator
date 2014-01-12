@@ -1,5 +1,9 @@
 package me.g13n.tipcalculator;
 
+import java.text.NumberFormat;
+import java.util.Currency;
+import java.util.Locale;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
@@ -48,8 +52,7 @@ public class TipCalculatorActivity extends Activity {
     
     protected void setTipValue(double tip) {
     	TextView lblTipValue = (TextView) findViewById(R.id.lblTipValue);
-    	String tipValue = String.format(getString(R.string.currency), tip);
-    	lblTipValue.setText(tipValue);
+    	lblTipValue.setText(TipCalculator.formatCurrency(tip));
     }
     
     protected void clearTipPercent() {
@@ -66,6 +69,13 @@ final class TipCalculator {
 		}
 		
 		return total * tip / 100;
+	}
+	
+	public static String formatCurrency(double value) {
+		Currency c = Currency.getInstance(Locale.getDefault());
+		NumberFormat cf = NumberFormat.getCurrencyInstance();
+		cf.setCurrency(c);
+		return cf.format(value);
 	}
 }
 
