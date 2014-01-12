@@ -7,7 +7,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class TipEntry extends Activity {
+public class TipCalculatorActivity extends Activity {
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
