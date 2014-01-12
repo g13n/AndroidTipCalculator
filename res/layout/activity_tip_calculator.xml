@@ -17,7 +17,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="40dp"
         android:ems="10"
-        android:hint="@string/enter_amount" >
+        android:hint="@string/enter_amount"
+        android:inputType="numberDecimal" >
 
         <requestFocus />
     </EditText>
@@ -72,7 +73,8 @@
         android:layout_marginTop="51dp"
         android:layout_toLeftOf="@+id/btnCalculate"
         android:ems="10"
-        android:hint="@string/different_tip" />
+        android:hint="@string/different_tip"
+        android:inputType="numberDecimal" />
 
     <Button
         android:id="@+id/btnCalculate"
