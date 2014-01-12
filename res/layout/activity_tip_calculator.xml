@@ -25,7 +25,8 @@
 
     <Button
         android:id="@+id/btn15"
-        android:onClick="onFifteenPercentClick"
+        android:onClick="onQuickTipClick"
+        android:tag="15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/btn10"
@@ -35,7 +36,8 @@
 
     <Button
         android:id="@+id/btn10"
-        android:onClick="onTenPercentClick"
+        android:onClick="onQuickTipClick"
+        android:tag="10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/etAmount"
@@ -45,7 +47,8 @@
 
     <Button
         android:id="@+id/btn20"
-        android:onClick="onTwentyPercentClick"
+        android:onClick="onQuickTipClick"
+        android:tag="20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/btn15"

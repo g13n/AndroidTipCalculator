@@ -15,31 +15,9 @@ public class TipCalculatorActivity extends Activity {
         setContentView(R.layout.activity_tip_calculator);
     }
     
-    public void onTenPercentClick(View v) {
+    public void onQuickTipClick(View v) {
     	try {
-    		this.setTipValue(TipCalculator.getTipValue(this.getTotalValue(), 10));
-    	} catch (NumberFormatException ex) {
-    		Toast.makeText(getBaseContext(), R.string.invalid_input, Toast.LENGTH_SHORT).show();
-    	} catch (NegativeValueException ex) {
-    		Toast.makeText(getBaseContext(), R.string.invalid_input, Toast.LENGTH_SHORT).show();
-    	}
-    	this.clearTipPercent();
-	}
-    
-    public void onFifteenPercentClick(View v) {
-    	try {
-    		this.setTipValue(TipCalculator.getTipValue(this.getTotalValue(), 15));
-    	} catch (NumberFormatException ex) {
-    		Toast.makeText(getBaseContext(), R.string.invalid_input, Toast.LENGTH_SHORT).show();
-    	} catch (NegativeValueException ex) {
-    		Toast.makeText(getBaseContext(), R.string.invalid_input, Toast.LENGTH_SHORT).show();
-    	}
-    	this.clearTipPercent();
-	}
-    
-    public void onTwentyPercentClick(View v) {
-    	try {
-    		this.setTipValue(TipCalculator.getTipValue(this.getTotalValue(), 20));
+    		this.setTipValue(TipCalculator.getTipValue(this.getTotalValue(), (double)Double.parseDouble((String)v.getTag())));
     	} catch (NumberFormatException ex) {
     		Toast.makeText(getBaseContext(), R.string.invalid_input, Toast.LENGTH_SHORT).show();
     	} catch (NegativeValueException ex) {
