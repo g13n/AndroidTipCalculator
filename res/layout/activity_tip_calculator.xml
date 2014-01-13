@@ -79,6 +79,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/etAmount"
+        android:layout_alignRight="@+id/btn20"
         android:layout_below="@+id/btn15"
         android:layout_marginTop="100dp" />
 
@@ -110,5 +111,14 @@
         android:layout_below="@+id/lblTipValue"
         android:text="@string/total_label"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/lblTipPercent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/sbDifferentTip"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/sbDifferentTip"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 </RelativeLayout>

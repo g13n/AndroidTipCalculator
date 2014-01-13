@@ -24,13 +24,14 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f08000a;
+        public static final int action_settings=0x7f08000b;
         public static final int btn10=0x7f080002;
         public static final int btn15=0x7f080001;
         public static final int btn20=0x7f080003;
         public static final int etAmount=0x7f080000;
         public static final int lblDifferentTip=0x7f080009;
         public static final int lblTip=0x7f080005;
+        public static final int lblTipPercent=0x7f08000a;
         public static final int lblTipValue=0x7f080004;
         public static final int lblTotal=0x7f080007;
         public static final int lblTotalValue=0x7f080006;
@@ -49,7 +50,8 @@ public final class R {
         public static final int different_tip=0x7f050008;
         public static final int enter_amount=0x7f050002;
         public static final int fifteen_percent=0x7f050004;
-        public static final int invalid_input=0x7f05000a;
+        public static final int invalid_input=0x7f05000b;
+        public static final int percent=0x7f05000a;
         public static final int ten_percent=0x7f050003;
         public static final int tip_label=0x7f050006;
         public static final int total_label=0x7f050007;

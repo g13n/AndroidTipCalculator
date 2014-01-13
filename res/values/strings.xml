@@ -11,6 +11,7 @@
     <string name="total_label">Total:</string>
     <string name="different_tip">Choose a different tip amount:</string>
     <string name="calculate">Calculate</string>
-    <string name="invalid_input">Please correct your input.  Negative values are not allowed</string>
+    <string name="percent">%s%%</string>
+    <string name="invalid_input">Amount cannot be empty or negative</string>
     
 </resources>

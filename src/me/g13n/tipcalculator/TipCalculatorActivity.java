@@ -22,6 +22,8 @@ public class TipCalculatorActivity extends Activity implements OnSeekBarChangeLi
 
     	SeekBar sbDiffTip = (SeekBar)findViewById(R.id.sbDifferentTip);
     	sbDiffTip.setOnSeekBarChangeListener(this);
+    	
+    	this.progressPercent = getString(R.string.percent);
     }
     
     public void onQuickTipClick(View v) {
@@ -50,6 +52,8 @@ public class TipCalculatorActivity extends Activity implements OnSeekBarChangeLi
 	@Override
 	public void onProgressChanged(SeekBar seekBar, int progress,
 			boolean fromUser) {
+    	TextView lblTipPercent = (TextView) findViewById(R.id.lblTipPercent);
+    	lblTipPercent.setText(String.format(this.progressPercent, String.valueOf(progress)));
 	}
 
 	@Override
@@ -68,6 +72,7 @@ public class TipCalculatorActivity extends Activity implements OnSeekBarChangeLi
 	}
     
 	private double total;
+	private String progressPercent;
 }
 
 final class TipCalculator {
