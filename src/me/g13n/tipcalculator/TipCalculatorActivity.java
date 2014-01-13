@@ -6,22 +6,28 @@ import java.util.Locale;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
+import android.widget.TextView.OnEditorActionListener;
 import android.widget.Toast;
 
-public class TipCalculatorActivity extends Activity implements OnSeekBarChangeListener {
+public class TipCalculatorActivity extends Activity implements OnSeekBarChangeListener, OnEditorActionListener {
 	
-    @Override
+	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tip_calculator);
 
     	SeekBar sbDiffTip = (SeekBar)findViewById(R.id.sbDifferentTip);
     	sbDiffTip.setOnSeekBarChangeListener(this);
+    	
+    	EditText etAmount = (EditText)findViewById(R.id.etAmount);
+    	etAmount.setOnEditorActionListener(this);
     	
     	this.progressPercent = getString(R.string.percent);
     }
@@ -47,6 +53,7 @@ public class TipCalculatorActivity extends Activity implements OnSeekBarChangeLi
     	lblTipValue.setText(TipCalculator.formatCurrency(tip));
     	TextView lblTotalValue = (TextView) findViewById(R.id.lblTotalValue);
     	lblTotalValue.setText(TipCalculator.formatCurrency(this.total + tip));
+    	this.tip = tip;
     }
 
 	@Override
@@ -63,16 +70,33 @@ public class TipCalculatorActivity extends Activity implements OnSeekBarChangeLi
 	@Override
 	public void onStopTrackingTouch(SeekBar seekBar) {
     	try {
-    		this.setTipAndTotal(TipCalculator.getTipValue(this.getTotalValue(), seekBar.getProgress()));
+    		int progress = seekBar.getProgress();
+    		this.setTipAndTotal(TipCalculator.getTipValue(this.getTotalValue(), progress));
+        	this.tip = progress;
     	} catch (NegativeValueException ex) {
     		Toast.makeText(getBaseContext(), R.string.invalid_input, Toast.LENGTH_SHORT).show();
     	} catch (NumberFormatException ex) {
     		Toast.makeText(getBaseContext(), R.string.invalid_input, Toast.LENGTH_SHORT).show();
     	}
 	}
+
+	@Override
+	public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+		try {
+			if (actionId == EditorInfo.IME_ACTION_DONE && this.tip > 0) {
+				this.setTipAndTotal(TipCalculator.getTipValue(this.getTotalValue(), this.tip));
+			}
+    	} catch (NegativeValueException ex) {
+    		Toast.makeText(getBaseContext(), R.string.invalid_input, Toast.LENGTH_SHORT).show();
+    	} catch (NumberFormatException ex) {
+    		// Don't do anything
+    	}
+		return false;
+	}
     
 	private double total;
 	private String progressPercent;
+    private double tip;
 }
 
 final class TipCalculator {
