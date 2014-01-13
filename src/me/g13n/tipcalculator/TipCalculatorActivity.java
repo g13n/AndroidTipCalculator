@@ -8,58 +8,66 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class TipCalculatorActivity extends Activity {
+public class TipCalculatorActivity extends Activity implements OnSeekBarChangeListener {
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tip_calculator);
+
+    	SeekBar sbDiffTip = (SeekBar)findViewById(R.id.sbDifferentTip);
+    	sbDiffTip.setOnSeekBarChangeListener(this);
     }
     
     public void onQuickTipClick(View v) {
     	try {
-    		this.setTipValue(TipCalculator.getTipValue(this.getTotalValue(), (double)Double.parseDouble((String)v.getTag())));
+    		this.setTipAndTotal(TipCalculator.getTipValue(this.getTotalValue(), (double)Double.parseDouble((String)v.getTag())));
     	} catch (NumberFormatException ex) {
     		Toast.makeText(getBaseContext(), R.string.invalid_input, Toast.LENGTH_SHORT).show();
     	} catch (NegativeValueException ex) {
-    		Toast.makeText(getBaseContext(), R.string.invalid_input, Toast.LENGTH_SHORT).show();
-    	}
-    	this.clearTipPercent();
-	}
-    
-    public void onCalculateClick(View v) {
-    	try {
-    		this.setTipValue(TipCalculator.getTipValue(this.getTotalValue(), this.getTipPercent()));
-    	} catch (NegativeValueException ex) {
-    		Toast.makeText(getBaseContext(), R.string.invalid_input, Toast.LENGTH_SHORT).show();
-    	} catch (NumberFormatException ex) {
     		Toast.makeText(getBaseContext(), R.string.invalid_input, Toast.LENGTH_SHORT).show();
     	}
 	}
     
     protected double getTotalValue() {
     	EditText etTotal = (EditText) findViewById(R.id.etAmount);
-    	return Double.parseDouble(etTotal.getText().toString());
+    	this.total = Double.parseDouble(etTotal.getText().toString());
+    	return this.total;
     }
     
-    protected double getTipPercent() {
-    	EditText etTip = (EditText) findViewById(R.id.etDifferentTip);
-    	return Double.parseDouble(etTip.getText().toString());
-    }
-    
-    protected void setTipValue(double tip) {
+    protected void setTipAndTotal(double tip) {
     	TextView lblTipValue = (TextView) findViewById(R.id.lblTipValue);
     	lblTipValue.setText(TipCalculator.formatCurrency(tip));
+    	TextView lblTotalValue = (TextView) findViewById(R.id.lblTotalValue);
+    	lblTotalValue.setText(TipCalculator.formatCurrency(this.total + tip));
     }
+
+	@Override
+	public void onProgressChanged(SeekBar seekBar, int progress,
+			boolean fromUser) {
+	}
+
+	@Override
+	public void onStartTrackingTouch(SeekBar seekBar) {
+	}
+
+	@Override
+	public void onStopTrackingTouch(SeekBar seekBar) {
+    	try {
+    		this.setTipAndTotal(TipCalculator.getTipValue(this.getTotalValue(), seekBar.getProgress()));
+    	} catch (NegativeValueException ex) {
+    		Toast.makeText(getBaseContext(), R.string.invalid_input, Toast.LENGTH_SHORT).show();
+    	} catch (NumberFormatException ex) {
+    		Toast.makeText(getBaseContext(), R.string.invalid_input, Toast.LENGTH_SHORT).show();
+    	}
+	}
     
-    protected void clearTipPercent() {
-    	EditText etTip = (EditText) findViewById(R.id.etDifferentTip);
-    	etTip.setText("");
-    }
-    
+	private double total;
 }
 
 final class TipCalculator {

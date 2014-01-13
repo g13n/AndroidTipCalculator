@@ -57,44 +57,58 @@
         android:text="@string/twenty_percent" />
 
     <TextView
-        android:id="@+id/lblTip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/btn15"
-        android:layout_marginBottom="80dp"
-        android:layout_marginRight="43dp"
-        android:text="@string/tip_label"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <EditText
-        android:id="@+id/etDifferentTip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/etAmount"
-        android:layout_below="@+id/btn15"
-        android:layout_marginTop="51dp"
-        android:layout_toLeftOf="@+id/btnCalculate"
-        android:ems="10"
-        android:hint="@string/different_tip"
-        android:inputType="numberDecimal" />
-
-    <Button
-        android:id="@+id/btnCalculate"
-        android:onClick="onCalculateClick"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/etDifferentTip"
-        android:layout_alignRight="@+id/etAmount"
-        android:text="@string/calculate" />
-
-    <TextView
         android:id="@+id/lblTipValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/lblTip"
         android:layout_alignBottom="@+id/lblTip"
-        android:layout_toRightOf="@+id/lblTip"
+        android:layout_alignLeft="@+id/btn20"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/lblTotalValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/lblTotal"
+        android:layout_alignBottom="@+id/lblTotal"
+        android:layout_alignLeft="@+id/btn20"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    <SeekBar
+        android:id="@+id/sbDifferentTip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/etAmount"
+        android:layout_below="@+id/btn15"
+        android:layout_marginTop="100dp" />
+
+    <TextView
+        android:id="@+id/lblDifferentTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/sbDifferentTip"
+        android:layout_alignLeft="@+id/sbDifferentTip"
+        android:layout_marginBottom="50dp"
+        android:text="@string/different_tip"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/lblTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btn15"
+        android:layout_below="@+id/sbDifferentTip"
+        android:layout_marginTop="25dp"
+        android:text="@string/tip_label"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/lblTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/lblTip"
+        android:layout_below="@+id/lblTipValue"
+        android:text="@string/total_label"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>

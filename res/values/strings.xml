@@ -8,7 +8,8 @@
     <string name="fifteen_percent">15%</string>
     <string name="twenty_percent">20%</string>
     <string name="tip_label">Tip:</string>
-    <string name="different_tip">Different tip</string>
+    <string name="total_label">Total:</string>
+    <string name="different_tip">Choose a different tip amount:</string>
     <string name="calculate">Calculate</string>
     <string name="invalid_input">Please correct your input.  Negative values are not allowed</string>
     
