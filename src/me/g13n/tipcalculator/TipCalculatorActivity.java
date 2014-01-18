@@ -4,8 +4,8 @@ import java.text.NumberFormat;
 import java.util.Currency;
 import java.util.Locale;
 
-import android.os.Bundle;
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -53,6 +53,8 @@ public class TipCalculatorActivity extends Activity implements OnSeekBarChangeLi
     	lblTipValue.setText(TipCalculator.formatCurrency(tip));
     	TextView lblTotalValue = (TextView) findViewById(R.id.lblTotalValue);
     	lblTotalValue.setText(TipCalculator.formatCurrency(this.total + tip));
+    	SeekBar sbSeekBar = (SeekBar) findViewById(R.id.sbDifferentTip);
+    	sbSeekBar.setProgress((int)tip);
     	this.tip = tip;
     }
 
