@@ -63,6 +63,7 @@
         android:layout_alignBaseline="@+id/lblTip"
         android:layout_alignBottom="@+id/lblTip"
         android:layout_alignLeft="@+id/btn20"
+        android:layout_toRightOf="@+id/lblTip"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -72,6 +73,7 @@
         android:layout_alignBaseline="@+id/lblTotal"
         android:layout_alignBottom="@+id/lblTotal"
         android:layout_alignLeft="@+id/btn20"
+        android:layout_toRightOf="@+id/lblTotal"
         android:textAppearance="?android:attr/textAppearanceLarge" />
     
     <SeekBar
